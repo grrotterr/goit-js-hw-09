@@ -6,6 +6,7 @@ let formData = {
 const form = document.querySelector(".feedback-form");
 const STORAGE_KEY = "feedback-form-state";
 
+
 function populateForm() {
   const savedData = localStorage.getItem(STORAGE_KEY);
   
@@ -20,6 +21,9 @@ function populateForm() {
 function saveToLocalStorage() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
+
+
+populateForm();
 
 
 form.addEventListener("input", (event) => {
@@ -47,6 +51,3 @@ form.addEventListener("submit", (event) => {
   formData = { email: "", message: "" };
   form.reset();
 });
-
-// === Викликаємо ініціалізацію ПЕРЕД слухачами ===
-populateForm();
